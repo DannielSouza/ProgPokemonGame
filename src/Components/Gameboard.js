@@ -16,6 +16,7 @@ const Gameboard = ({pokemon}) => {
     atack: 110, 
     img: mewtwo
   })
+  
 
   React.useState(()=>{  
   if(pokemon){  
@@ -56,7 +57,6 @@ const Gameboard = ({pokemon}) => {
       <StatsBoss name={bossStats.name} hp={bossStats.hp}/>
       <img className={style.pokemonImgBoss} src={bossStats.img} alt='Boss'/>
     
-
     </section>
   )
   return <p>carregando...</p>

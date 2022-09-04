@@ -1,24 +1,28 @@
 import React from 'react'
 import style from '../Styles/Stats.module.css'
+import RoundAtackResume from './RoundAtackResume';
 
 const Stats = ({bossStats, setBossStats, bossStatsAtack, player, setPlayer}) => {
+  const [roundAtackResume, setRoundAtackResume] = React.useState(false)
+  let pokemonDamage
+  let bossDamage
+  let pokemonHeal
+  
 
   function Atack(atack){
-    const pokemonDamage = Math.floor(Math.random() * 10 + atack)
-    setBossStats({...bossStats, hp:bossStats.hp - pokemonDamage})
+    bossDamage = Math.floor(Math.random() * 5 + bossStatsAtack)
+    setPlayer((beforeStatus)=>({...beforeStatus, hp:beforeStatus.hp - bossDamage}))
 
-    const bossDamage = Math.floor(Math.random() * 5 + bossStatsAtack)
-    setPlayer({...player, hp:player.hp - bossDamage})
+    pokemonDamage = Math.floor(Math.random() * 10 + atack)
+    setBossStats((beforeStatus)=>({...beforeStatus, hp:beforeStatus.hp - pokemonDamage}))
   }
 
   function Heal(){
-    const bossDamage = Math.floor(Math.random() * 5 + bossStatsAtack)
-    console.log(bossDamage)
-    setPlayer({...player, hp:player.hp - bossDamage})
-    
-    const pokemonHeal = Math.floor(Math.random() * 90 + 120/2)
-    console.log(pokemonHeal)
-    setPlayer({...player, hp:player.hp + pokemonHeal})
+    pokemonHeal = Math.floor(Math.random() * 90 + 115/2)
+    setPlayer((beforeStatus)=> ({...beforeStatus, hp:beforeStatus.hp + pokemonHeal}))
+
+    bossDamage = Math.floor(Math.random() * 5 + bossStatsAtack)
+    setPlayer((beforeStatus)=>({...beforeStatus, hp:beforeStatus.hp - bossDamage}))
   }
 
   return (
@@ -35,8 +39,10 @@ const Stats = ({bossStats, setBossStats, bossStatsAtack, player, setPlayer}) => 
 
 
        <button className={style.option} onClick={()=>Atack(player.atack)}>Atacar: <span>+-{player.atack}</span></button>
-       <button className={style.option} onClick={Heal}>Curar: <span>+-120</span></button>
+       <button className={style.option} onClick={Heal}>Curar: <span>+- ?</span></button>
       </div>
+
+      {roundAtackResume && <RoundAtackResume pokemonDamage={pokemonDamage} bossDamage={bossDamage}/>}
     </div>
   )
 }

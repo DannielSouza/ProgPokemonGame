@@ -1,0 +1,33 @@
+.container{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.pokemonImg{
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  bottom: 7%;
+  left: 2%;
+}
+
+.pokemonImgBoss{
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  top: 7%;
+  right: 2%;
+  animation: animeBoss 5s infinite ease-in-out;
+}
+
+@keyframes animeBoss{
+  0%{
+    transform: initial;
+  }50%{
+    transform: translateY(50px);
+  }
+  100%{
+    transform: initial;
+  }
+}

@@ -1,0 +1,14 @@
+.screenContainer{
+  position: relative;
+  width: 800px;
+  height: 500px;
+  background: rgba(0, 0, 0, .3);
+  background: url('../assets/fightBackgroundGif.gif');
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+  background-size: 105%;
+  border: 1px solid white;
+  border-radius: 15px;
+  overflow: hidden;
+}

@@ -27,7 +27,6 @@
 
 .container p{
   font-size: 1.3rem;
-
 }
 
 .container span{
@@ -37,4 +36,15 @@
 
 .container .heal{
   color: darkgreen;
+}
+
+@media (max-height: 850px){
+  .container p{
+    font-size: 1.1rem;
+    text-align: center;
+    padding: 0 20px;
+  }
+  .container span{
+    font-size: 1.1rem;
+  }
 }

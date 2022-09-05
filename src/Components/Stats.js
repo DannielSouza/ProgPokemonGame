@@ -1,29 +1,37 @@
 import React from 'react'
 import style from '../Styles/Stats.module.css'
 import RoundAtackResume from './RoundAtackResume';
+import RoundHealResume from './RoundHealResume';
 
 const Stats = ({bossStats, setBossStats, bossStatsAtack, player, setPlayer}) => {
   const [roundAtackResume, setRoundAtackResume] = React.useState(false)
-  let pokemonDamage = null
-  let bossDamage = null
-  let pokemonHeal = null
+  const [roundAtackResumeDetails, setRoundAtackResumeDetails] = React.useState({})
+
+  const [roundHealResume, setRoundHealResume] = React.useState(false)
+  const [roundHealResumeDetails, setRoundHealResumeDetails] = React.useState({})
   
 
   function Atack(atack){
-    bossDamage = Math.floor(Math.random() * 5 + bossStatsAtack)
+    const bossDamage = Math.floor(Math.random() * 5 + bossStatsAtack)
     setPlayer((beforeStatus)=>({...beforeStatus, hp:beforeStatus.hp - bossDamage}))
 
-    pokemonDamage = Math.floor(Math.random() * 10 + atack)
+    const pokemonDamage = Math.floor(Math.random() * 10 + atack)
     setBossStats((beforeStatus)=>({...beforeStatus, hp:beforeStatus.hp - pokemonDamage}))
     setRoundAtackResume({pokemonDamage, bossDamage})
+
+    setRoundAtackResume(true)
+    setRoundAtackResumeDetails({bossDamage:bossDamage, pokemonDamage:pokemonDamage})
   }
 
   function Heal(){
-    pokemonHeal = Math.floor(Math.random() * 90 + 115/2)
+    const pokemonHeal = Math.floor(Math.random() * 100 + 110/2)
     setPlayer((beforeStatus)=> ({...beforeStatus, hp:beforeStatus.hp + pokemonHeal}))
 
-    bossDamage = Math.floor(Math.random() * 5 + bossStatsAtack)
+    const bossDamage = Math.floor(Math.random() * 5 + bossStatsAtack)
     setPlayer((beforeStatus)=>({...beforeStatus, hp:beforeStatus.hp - bossDamage}))
+
+    setRoundHealResume(true)
+    setRoundHealResumeDetails({bossDamage:bossDamage, pokemonHeal:pokemonHeal})
   }
 
   return (
@@ -43,7 +51,8 @@ const Stats = ({bossStats, setBossStats, bossStatsAtack, player, setPlayer}) => 
        <button className={style.option} onClick={Heal}>Curar: <span>+- ?</span></button>
       </div>
 
-      {roundAtackResume && <RoundAtackResume pokemonDamage={pokemonDamage} bossDamage={bossDamage} setRoundAtackResume={setRoundAtackResume}/>}
+      {roundAtackResume && <RoundAtackResume roundAtackResumeDetails={roundAtackResumeDetails} setRoundAtackResume={setRoundAtackResume}/>}
+      {roundHealResume && <RoundHealResume roundHealResumeDetails={roundHealResumeDetails} setRoundHealResume={setRoundHealResume}/>}
     </div>
   )
 }

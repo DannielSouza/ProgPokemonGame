@@ -4,9 +4,9 @@ import RoundAtackResume from './RoundAtackResume';
 
 const Stats = ({bossStats, setBossStats, bossStatsAtack, player, setPlayer}) => {
   const [roundAtackResume, setRoundAtackResume] = React.useState(false)
-  let pokemonDamage
-  let bossDamage
-  let pokemonHeal
+  let pokemonDamage = null
+  let bossDamage = null
+  let pokemonHeal = null
   
 
   function Atack(atack){
@@ -15,6 +15,7 @@ const Stats = ({bossStats, setBossStats, bossStatsAtack, player, setPlayer}) => 
 
     pokemonDamage = Math.floor(Math.random() * 10 + atack)
     setBossStats((beforeStatus)=>({...beforeStatus, hp:beforeStatus.hp - pokemonDamage}))
+    setRoundAtackResume({pokemonDamage, bossDamage})
   }
 
   function Heal(){
@@ -42,7 +43,7 @@ const Stats = ({bossStats, setBossStats, bossStatsAtack, player, setPlayer}) => 
        <button className={style.option} onClick={Heal}>Curar: <span>+- ?</span></button>
       </div>
 
-      {roundAtackResume && <RoundAtackResume pokemonDamage={pokemonDamage} bossDamage={bossDamage}/>}
+      {roundAtackResume && <RoundAtackResume pokemonDamage={pokemonDamage} bossDamage={bossDamage} setRoundAtackResume={setRoundAtackResume}/>}
     </div>
   )
 }

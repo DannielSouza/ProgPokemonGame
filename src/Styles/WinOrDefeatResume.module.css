@@ -1,0 +1,67 @@
+.container{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .6);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.itemContainer{
+  background: darkgray;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: .5rem;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  animation: animaWinOrLose .5s ease-in-out forwards;
+}
+
+@keyframes animaWinOrLose {
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+
+.titleWin,
+.titleDefeat{
+  font-size: 3rem;
+  border-bottom: 1px solid;
+}
+
+.titleWin{
+  color: #2874A6;
+}
+
+.titleDefeat{
+  color: darkred;
+}
+
+.itemContainer p{
+  font-size: 1.2rem;
+  margin-top: .5rem;
+  margin-bottom: 1rem;
+}
+
+.itemContainer button{
+  padding: .5rem 1.5rem;
+  color: rgba(0, 0, 0, .9);
+  background: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border: 1px solid black;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.itemContainer button:hover{
+  background: lightgray;
+}

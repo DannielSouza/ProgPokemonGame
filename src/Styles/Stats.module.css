@@ -87,3 +87,25 @@
   border-radius: 50%;
   border: 1px solid black;
 }
+
+@media (max-height: 850px){
+  .itemContainer{
+    width: 200px;
+    height: 100px;
+  }
+  .optionAtack,
+  .optionHeal{
+    font-size: 1rem;
+    padding: .1rem;
+    margin-right: .2rem;
+    margin-top: .5rem;
+  }
+  .healCount{
+    font-size: .8rem;
+    width: 15px;
+    height: 15px;
+  }
+  .itemContainerBoss{
+    height: 80px;
+  }
+}

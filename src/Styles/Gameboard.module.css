@@ -31,3 +31,16 @@
     transform: initial;
   }
 }
+
+@media (max-height: 850px){
+  .pokemonImg{
+    width: 150px;
+    height: 150px;
+    left: 3%;
+    bottom: 4%;
+  }
+  .pokemonImgBoss{
+    width: 80px;
+    height: 80px; 
+  }
+}

@@ -12,3 +12,11 @@
   border-radius: 15px;
   overflow: hidden;
 }
+
+@media (max-height: 850px) {
+  .screenContainer{
+    width: 600px;
+    height: 350px;
+  }
+}
+

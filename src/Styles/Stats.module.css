@@ -109,3 +109,22 @@
     height: 80px;
   }
 }
+
+@media (min-width: 1100px){
+  .itemContainer{
+    width: 250px;
+    height: 120px;
+  }
+  .optionAtack,
+  .optionHeal{
+    font-size: 1.1rem;
+    padding: .2rem .5rem;
+    margin-right: .3rem;
+    margin-top: .5rem;
+  }
+  .healCount{
+    font-size: 1rem;
+    width: 20px;
+    height: 20px;
+  }
+}

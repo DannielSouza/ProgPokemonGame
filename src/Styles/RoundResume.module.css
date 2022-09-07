@@ -48,3 +48,9 @@
     font-size: 1.1rem;
   }
 }
+
+@media (min-width: 1100px){
+  .container p{
+    font-size: 1.3rem;
+  }
+}

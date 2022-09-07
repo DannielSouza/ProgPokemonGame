@@ -44,3 +44,16 @@
     height: 80px; 
   }
 }
+
+@media (min-width: 1100px){
+  .pokemonImg{
+    width: 250px;
+    height: 250px;
+    bottom: 7%;
+    left: 2%;
+  }
+  .pokemonImgBoss{
+    width: 130px;
+    height: 130px;
+  }
+}

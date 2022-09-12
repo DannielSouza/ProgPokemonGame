@@ -91,7 +91,7 @@
 @media (max-height: 850px){
   .itemContainer{
     width: 200px;
-    height: 100px;
+    height: 145px;
   }
   .optionAtack,
   .optionHeal{
@@ -107,6 +107,10 @@
   }
   .itemContainerBoss{
     height: 80px;
+    width: 190px;
+  }
+  .lifeBar{
+    max-width: 160px;
   }
 }
 

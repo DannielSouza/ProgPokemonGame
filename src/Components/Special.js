@@ -34,9 +34,6 @@ const Special = ({specialCount, pokemon, setPlayer, setBastoiseSuper}) => {
   
 
 
-
-
-
   if(specialCount > 0) return(
     <button disabled className={style.optionSpecial}>
       SUPER

@@ -10,6 +10,19 @@
   border: 1px solid black;
 }
 
+.optionSpecial {
+  width: 80px;
+  height: 25px;
+  position: relative;
+  font-size: 1.5rem;
+  padding: 0.4rem 1rem;
+  margin-right: 0.3rem;
+  margin-top: 0.8rem;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 
 @media (min-width: 1100px) {
   .optionSpecial {
@@ -32,5 +45,13 @@
     padding: 0.1rem;
     margin-right: 0.2rem;
     margin-top: 0.8rem;
+  }
+  .count{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 15px;
+    height: 15px;
+    font-size: .7rem;
   }
 }

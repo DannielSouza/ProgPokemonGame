@@ -12,7 +12,7 @@ const Gameboard = ({pokemon}) => {
   const [player, setPlayer] = React.useState(null)
   const [bossStats, setBossStats] =  React.useState({
     name: 'Mewtwo',
-    hp: 130 * 10,
+    hp: 140 * 10,
     atack: 110, 
     img: mewtwo
   })
@@ -51,6 +51,7 @@ const Gameboard = ({pokemon}) => {
   if(player) return (
     <section className={style.container}>
 
+      {player.buff && <img className={style.buff} src={player.buff} alt='buff'/>}
       <Stats name={player.name} setPlayer={setPlayer} player={player} hp={player.hp} atack={player.atack} bossStats={bossStats} setBossStats={setBossStats} bossStatsAtack={bossStats.atack}/>
       <img className={style.pokemonImg} src={player.img} alt='seu Pokemon'/>
 

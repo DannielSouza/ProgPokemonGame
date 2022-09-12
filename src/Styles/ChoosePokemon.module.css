@@ -5,6 +5,18 @@
   height: 100%;
   text-align: center;
   color: white;
+  animation: animeDown 1s forwards;
+}
+
+@keyframes animeDown{
+  from{
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to{
+    transform: initial;
+    opacity: initial;
+  }
 }
 
 .container h1{

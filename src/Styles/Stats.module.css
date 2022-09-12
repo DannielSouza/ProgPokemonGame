@@ -7,7 +7,7 @@
 .itemContainer{
   position: absolute;
   width: 250px;
-  height: 120px;
+  height: 250px;
   bottom: 0%;
   right: 20%;
   background: lightgray;
@@ -20,7 +20,7 @@
 
 .itemContainerBoss{
   position: absolute;
-  width: 220px;
+  width: 230px;
   height: 80px;
   top: 0%;
   left: 20%;
@@ -31,7 +31,6 @@
 }
 
 .containerBar{
-  width: 300px;
   height: 10px;
   margin-bottom: 1.6rem;
   text-transform: capitalize;
@@ -46,7 +45,7 @@
 .lifeBar{
   position: absolute;
   animation: barLoading 1s forwards;
-  
+  max-width: 200px;
   height: 8px;
   border-radius: 5rem;
   background-color: green !important;
@@ -66,17 +65,18 @@
   font-size: 1.1rem;
   padding: .2rem .5rem;
   margin-right: .3rem;
-  margin-top: .5rem;
+  margin-top: .8rem;
   border: 1px solid black;
   border-radius: 5px;
   cursor: pointer;
 }
 
-.optionHeal{
+.optionHeal,
+.optionSpecial{
   position: relative;
 }
 
-.healCount{
+.count{
   width: 20px;
   height: 20px;
   position: absolute;
@@ -98,9 +98,9 @@
     font-size: 1rem;
     padding: .1rem;
     margin-right: .2rem;
-    margin-top: .5rem;
+    margin-top: .8rem;
   }
-  .healCount{
+  .count{
     font-size: .8rem;
     width: 15px;
     height: 15px;
@@ -113,18 +113,21 @@
 @media (min-width: 1100px){
   .itemContainer{
     width: 250px;
-    height: 120px;
+    height: 150px;
   }
   .optionAtack,
   .optionHeal{
     font-size: 1.1rem;
     padding: .2rem .5rem;
     margin-right: .3rem;
-    margin-top: .5rem;
+    margin-top: .8rem;
   }
-  .healCount{
+  .count{
     font-size: 1rem;
     width: 20px;
     height: 20px;
+  }
+  .lifeBar{
+    max-width: 200px;
   }
 }

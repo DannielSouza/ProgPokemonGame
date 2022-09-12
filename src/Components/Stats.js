@@ -1,20 +1,25 @@
 import React from 'react'
 import style from '../Styles/Stats.module.css'
+import BlastoiseSuper from './BlastoiseSuper';
 import DefeatResume from './DefeatResume';
 import RoundAtackResume from './RoundAtackResume';
 import RoundHealResume from './RoundHealResume';
+import Special from './Special';
 import WinResume from './WinResume';
 
-const Stats = ({bossStats, setBossStats, bossStatsAtack, player, setPlayer}) => {
+const Stats = ({bossStats, setBossStats, bossStatsAtack, player, setPlayer, pokemonImg}) => {
   const [roundAtackResume, setRoundAtackResume] = React.useState(false)
   const [roundAtackResumeDetails, setRoundAtackResumeDetails] = React.useState({})
 
   const [roundHealResume, setRoundHealResume] = React.useState(false)
   const [roundHealResumeDetails, setRoundHealResumeDetails] = React.useState({})
   const [healCount, setHealCount] = React.useState(3)
+  const [specialCount, setSpecialCount] = React.useState(20)
 
   const [win, setWin] = React.useState(false)
   const [defeat, setDefeat] = React.useState(false)
+
+  const [bastoiseSuper, setBastoiseSuper] = React.useState(false)
   
 
   function Atack(atack){
@@ -64,11 +69,14 @@ const Stats = ({bossStats, setBossStats, bossStatsAtack, player, setPlayer}) => 
 
 
        <button className={style.optionAtack} onClick={()=>Atack(player.atack)}>Atacar: <span>+-{player.atack}</span></button>
-       {healCount > 0? <button className={style.optionHeal} onClick={Heal}>Curar: <span>+- ?</span> <h4 className={style.healCount}>{healCount}</h4></button> : <button disabled className={style.optionHeal} onClick={Heal}>Curar: <span>+- ?</span> <h4 className={style.healCount}>{healCount}</h4></button>}
+       {healCount > 0? <button className={style.optionHeal} onClick={Heal}>Curar: <span>+- ?</span> <h4 className={style.count}>{healCount}</h4></button> : <button disabled className={style.optionHeal} onClick={Heal}>Curar: <span>+- ?</span> <h4 className={style.count}>{healCount}</h4></button>}
+       <Special setBastoiseSuper={setBastoiseSuper} specialCount={specialCount} pokemon={player.name} setPlayer={setPlayer}/>
       </div>
 
-      {roundAtackResume && <RoundAtackResume roundAtackResumeDetails={roundAtackResumeDetails} setRoundAtackResume={setRoundAtackResume}/>}
-      {roundHealResume && <RoundHealResume roundHealResumeDetails={roundHealResumeDetails} setRoundHealResume={setRoundHealResume} healCount={healCount} setHealCount={setHealCount}/>}
+      {roundAtackResume && <RoundAtackResume specialCount={specialCount} setSpecialCount={setSpecialCount} roundAtackResumeDetails={roundAtackResumeDetails} setRoundAtackResume={setRoundAtackResume}/>}
+      {roundHealResume && <RoundHealResume specialCount={specialCount} setSpecialCount={setSpecialCount} roundHealResumeDetails={roundHealResumeDetails} setRoundHealResume={setRoundHealResume} healCount={healCount} setHealCount={setHealCount}/>}
+
+      {bastoiseSuper && <BlastoiseSuper setBossStats={setBossStats}/>}
 
       {win && <WinResume />}
       {defeat && <DefeatResume />}

@@ -1,0 +1,36 @@
+.count{
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: white;
+  color: darkgreen;
+  border-radius: 50%;
+  border: 1px solid black;
+}
+
+
+@media (min-width: 1100px) {
+  .optionSpecial {
+    width: 100px;
+    height: 25px;
+    position: relative;
+    font-size: 1.5rem;
+    padding: 0.4rem 1rem;
+    margin-right: 0.3rem;
+    margin-top: 0.8rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+}
+
+@media (max-height: 850px) {
+  .optionSpecial {
+    font-size: 1rem;
+    padding: 0.1rem;
+    margin-right: 0.2rem;
+    margin-top: 0.8rem;
+  }
+}

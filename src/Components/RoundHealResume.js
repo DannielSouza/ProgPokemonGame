@@ -1,11 +1,14 @@
 import React from 'react'
 import style from '../Styles/RoundResume.module.css'
 
-const RoundHealResume = ({roundHealResumeDetails, setRoundHealResume, healCount, setHealCount}) => {
+const RoundHealResume = ({roundHealResumeDetails, setRoundHealResume, healCount, setHealCount, setSpecialCount, specialCount}) => {
 
   function healAction(){
     setRoundHealResume(false)
     setHealCount((prevCount)=>prevCount - 1)
+    if(specialCount > 0){
+      setSpecialCount((before)=> before - 1)
+    }
   }
 
 

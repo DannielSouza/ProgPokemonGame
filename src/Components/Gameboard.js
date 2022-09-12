@@ -12,7 +12,7 @@ const Gameboard = ({pokemon}) => {
   const [player, setPlayer] = React.useState(null)
   const [bossStats, setBossStats] =  React.useState({
     name: 'Mewtwo',
-    hp: 140 * 10,
+    hp: 125 * 10,
     atack: 110, 
     img: mewtwo
   })

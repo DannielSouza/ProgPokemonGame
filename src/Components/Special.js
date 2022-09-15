@@ -21,7 +21,7 @@ const Special = ({setVenusaurSpecialResume, setCharizardSpecialResume, setBlasto
       setBastoiseSuper(true)
       setTimeout(()=>{
         setBastoiseSuper(false)
-      },3000)
+      },1000)
     }
     if(pokemon === 'Venusaur'){
       setVenusaurSpecialResume(true)

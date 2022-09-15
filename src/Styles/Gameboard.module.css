@@ -32,25 +32,7 @@
   left: 10%;
 }
 
-.pokemonImgBoss{
-  position: absolute;
-  width: 130px;
-  height: 130px;
-  top: 7%;
-  right: 2%;
-  animation: animeBoss 5s infinite ease-in-out;
-}
 
-@keyframes animeBoss{
-  0%{
-    transform: initial;
-  }50%{
-    transform: translateY(50px);
-  }
-  100%{
-    transform: initial;
-  }
-}
 
 @media (max-height: 850px){
   .pokemonImg{

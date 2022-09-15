@@ -1,0 +1,50 @@
+.optionHeal{
+  font-size: 1.1rem;
+  padding: .2rem .5rem;
+  margin-right: .3rem;
+  margin-top: .8rem;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.optionHeal{
+  position: relative;
+}
+
+.count{
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: white;
+  color: darkgreen;
+  border-radius: 50%;
+  border: 1px solid black;
+}
+
+@media (max-height: 850px){
+  .optionHeal{
+    font-size: 1rem;
+    padding: .1rem;
+    margin-right: .2rem;
+    margin-top: .8rem;
+  }
+  .count{
+    font-size: .8rem;
+    width: 15px;
+    height: 15px;
+  }
+  
+}
+
+@media (min-width: 1100px){
+  .optionHeal{
+    font-size: 1.1rem;
+    padding: .2rem .5rem;
+    margin-right: .3rem;
+    margin-top: .8rem;
+  }
+  
+}

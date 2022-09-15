@@ -4,7 +4,7 @@ import wave from '../assets/wave.gif'
 
 const BlastoiseSuper = ({setBossStats}) => {
   React.useEffect(()=>{
-    setBossStats((beforeStatus)=>({...beforeStatus, hp:beforeStatus.hp - 1000}))
+    setBossStats((beforeStatus)=>({...beforeStatus, hp:beforeStatus.hp - 1150}))
   },[])
 
   return (

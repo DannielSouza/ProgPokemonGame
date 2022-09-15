@@ -1,0 +1,41 @@
+.containerBar{
+  height: 10px;
+  margin-bottom: 1.6rem;
+  text-transform: capitalize;
+}
+
+.lifeBarContainer{
+  height: 10px;
+  border-radius: 5rem;
+  position: relative;
+}
+
+.lifeBar{
+  position: absolute;
+  animation: barLoading 1s forwards;
+  max-width: 200px;
+  height: 8px;
+  border-radius: 5rem;
+  background-color: green !important;
+}
+
+@keyframes barLoading{
+  from{
+    width: 0%;
+  }
+  to{
+    width: width;
+  }
+}
+
+@media (max-height: 850px){
+  .lifeBar{
+    max-width: 160px;
+  }
+}
+
+@media (min-width: 1100px){
+  .lifeBar{
+    max-width: 200px;
+  }
+}

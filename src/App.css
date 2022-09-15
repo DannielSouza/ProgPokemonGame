@@ -23,3 +23,107 @@ body{
   overflow-x: hidden;
   background-color: rgba(0, 0, 0, .9);
 }
+
+/* BOSS MEWTWO */
+
+.Mewtwo{
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 7%;
+  right: 2%;
+  animation: animeBoss 5s infinite ease-in-out;
+}
+
+@keyframes animeBoss{
+  0%{
+    transform: initial;
+  }50%{
+    transform: translateY(50px);
+  }
+  100%{
+    transform: initial;
+  }
+}
+
+@media (max-height: 850px){
+  .Mewtwo{
+    width: 80px;
+    height: 80px; 
+  }
+}
+
+@media (min-width: 1100px){
+  .Mewtwo{
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* BOSS LATIOS E LATIAS */
+
+.LatioseLatias{
+  position: absolute;
+  width: 180px;
+  top: 7%;
+  right: 2%;
+  animation: animeBoss 5s infinite ease-in-out;
+}
+
+.LatioseLatias2{
+  position: absolute;
+  height: 100px;
+  top: 7%;
+  right: 10%;
+  animation: animeBoss 5s infinite ease-in-out;
+}
+
+@keyframes animeBoss{
+  0%{
+    transform: initial;
+  }50%{
+    transform: translateY(50px);
+  }
+  100%{
+    transform: initial;
+  }
+}
+
+@media (max-height: 850px){
+  .pokemonImgBoss{
+    width: 80px;
+    height: 80px; 
+  }
+}
+
+@media (min-width: 1100px){
+  .pokemonImgBoss{
+    width: 130px;
+    height: 130px;
+  }
+}
+
+/* BOSS RAYQUAZA */
+
+.Rayquaza{
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  top: 5%;
+  right: 2%;
+  animation: animeBoss 5s infinite ease-in-out;
+}
+
+@media (max-height: 850px){
+  .Rayquaza{
+    width: 100px;
+    height: 100px; 
+  }
+}
+
+@media (min-width: 1100px){
+  .Rayquaza{
+    width: 200px;
+    height: 200px;
+  }
+}

@@ -3,36 +3,40 @@ import style from '../Styles/Special.module.css'
 import megaCharizard from '../assets/MegaCharizarad.gif'
 import shildBuff from '../assets/shild.gif'
 
-const Special = ({specialCount, pokemon, setPlayer, setBastoiseSuper}) => {
+const Special = ({setVenusaurSpecialResume, setCharizardSpecialResume, setBlastoiseSpecialResume, setSpecialCount, specialCount, pokemon, setPlayer, setBastoiseSuper, bossStats}) => {
   const specialButton = React.useRef()
 
   function activeSpecialPower(){
-    if(pokemon === 'Charizard'){ 
+    if(pokemon === 'Charizard' || pokemon === 'Mega Charizard'){ 
+      setCharizardSpecialResume(true)
       setPlayer((before) =>({
         name: 'Mega Charizard',
-        hp: before.hp + 600,
+        hp: before.hp + 1000,
         atack: before.atack + 30, 
         img: megaCharizard
       }))
     }
     if(pokemon === 'Blastoise'){ 
+      setBlastoiseSpecialResume(true)
       setBastoiseSuper(true)
       setTimeout(()=>{
-        setBastoiseSuper(true)
-      },500)
+        setBastoiseSuper(false)
+      },2000)
     }
     if(pokemon === 'Venusaur'){
+      setVenusaurSpecialResume(true)
       setPlayer((before) =>({
         ...before,
-        hp: before.hp + 3500,
+        hp: before.hp + 1500,
         buff: shildBuff
       }))
     }
 
-    specialButton.current.setAttribute("disabled", "disabled")
+    setSpecialCount(20)
+    if(bossStats.name === 'Rayquaza'){
+      setSpecialCount(10)
+    }
   }
-  
-
 
   if(specialCount > 0) return(
     <button disabled className={style.optionSpecial}>

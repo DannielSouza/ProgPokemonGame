@@ -4,18 +4,11 @@ import style from '../Styles/Gameboard.module.css'
 import venossauroImg from '../assets/venosauroBack.gif'
 import charizardImg from '../assets/charizardBack.gif'
 import bastoiseImg from '../assets/bastoiseBack.gif'
-import mewtwo from '../assets/mewtwoFront.gif'
 import StatsBoss from './StatsBoss';
 
 
-const Gameboard = ({pokemon}) => {
+const Gameboard = ({pokemon, bossStats, setBossStats}) => {
   const [player, setPlayer] = React.useState(null)
-  const [bossStats, setBossStats] =  React.useState({
-    name: 'Mewtwo',
-    hp: 125 * 10,
-    atack: 110, 
-    img: mewtwo
-  })
   
 
   React.useState(()=>{  
@@ -52,11 +45,12 @@ const Gameboard = ({pokemon}) => {
     <section className={style.container}>
 
       {player.buff && <img className={style.buff} src={player.buff} alt='buff'/>}
-      <Stats name={player.name} setPlayer={setPlayer} player={player} hp={player.hp} atack={player.atack} bossStats={bossStats} setBossStats={setBossStats} bossStatsAtack={bossStats.atack}/>
+      <Stats name={player.name} setPlayer={setPlayer} player={player} hp={player.hp} atack={player.atack} bossStats={bossStats} setBossStats={setBossStats}/>
       <img className={style.pokemonImg} src={player.img} alt='seu Pokemon'/>
 
       <StatsBoss name={bossStats.name} hp={bossStats.hp}/>
-      <img className={style.pokemonImgBoss} src={bossStats.img} alt='Boss'/>
+      <img className={bossStats.classCSS} src={bossStats.img} alt='Boss'/>
+      {bossStats.img2 && <img className={bossStats.classCSS  + 2} src={bossStats.img2} alt='Boss2'/>}
     
     </section>
   )

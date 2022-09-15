@@ -5,78 +5,67 @@ import DefeatResume from './DefeatResume';
 import RoundAtackResume from './RoundAtackResume';
 import RoundHealResume from './RoundHealResume';
 import Special from './Special';
+import Heal from './Heal';
+import Atack from './Atack';
 import WinResume from './WinResume';
+import PokemonDetails from './PokemonDetails';
+import MasterHability from './MasterHability';
+import VenusaurSpecialResume from './VenusaurSpecialResume';
+import CharizardSpecialResume from './CharizardSpecialResume';
+import BlastoiseSpecialResume from './BlastoiseSpecialResume';
 
-const Stats = ({bossStats, setBossStats, bossStatsAtack, player, setPlayer, pokemonImg}) => {
+
+const Stats = ({bossStats, setBossStats, player, setPlayer, pokemonImg}) => {
   const [roundAtackResume, setRoundAtackResume] = React.useState(false)
   const [roundAtackResumeDetails, setRoundAtackResumeDetails] = React.useState({})
-
   const [roundHealResume, setRoundHealResume] = React.useState(false)
   const [roundHealResumeDetails, setRoundHealResumeDetails] = React.useState({})
   const [healCount, setHealCount] = React.useState(3)
   const [specialCount, setSpecialCount] = React.useState(20)
-
   const [win, setWin] = React.useState(false)
   const [defeat, setDefeat] = React.useState(false)
-
   const [bastoiseSuper, setBastoiseSuper] = React.useState(false)
-  
-
-  function Atack(atack){
-    const bossDamage = Math.floor(Math.random() * 5 + bossStatsAtack)
-    setPlayer((beforeStatus)=>({...beforeStatus, hp:beforeStatus.hp - bossDamage}))
-
-    const pokemonDamage = Math.floor(Math.random() * 10 + atack)
-    setBossStats((beforeStatus)=>({...beforeStatus, hp:beforeStatus.hp - pokemonDamage}))
-    setRoundAtackResume({pokemonDamage, bossDamage})
-    
-    setRoundAtackResume(true)
-    setRoundAtackResumeDetails({bossDamage:bossDamage, pokemonDamage:pokemonDamage})
-  }
-
-  function Heal(){
-    const pokemonHeal = Math.floor(Math.random() * 100 + 790/2)
-    setPlayer((beforeStatus)=> ({...beforeStatus, hp:beforeStatus.hp + pokemonHeal}))
-
-    const bossDamage = Math.floor(Math.random() * 5 + bossStatsAtack)
-    setPlayer((beforeStatus)=>({...beforeStatus, hp:beforeStatus.hp - bossDamage}))
-
-    setRoundHealResume(true)
-    setRoundHealResumeDetails({bossDamage:bossDamage, pokemonHeal:pokemonHeal})
-  }
+  const [masterHability, setMasterHability] = React.useState(false)
+  const [venusaurSpecialResume, setVenusaurSpecialResume] = React.useState(false)
+  const [charizardSpecialResume, setCharizardSpecialResume] = React.useState(false)
+  const [blastoiseSpecialResume, setBlastoiseSpecialResume] = React.useState(false)
 
   React.useEffect(()=>{
     const playerLife = player.hp
     const bossLife = bossStats.hp
-
     if(bossLife <= 0) setWin(true)
     if(playerLife <= 0) setDefeat(true)
 
+    if((healCount - 1) === -1 && bossStats.name === 'Rayquaza' && player.hp <= 250){
+      setMasterHability(true)
+    }
+
   },[player, bossStats])
 
+  React.useEffect(()=>{
+    if(bossStats.name === 'Rayquaza'){
+      setSpecialCount(10)
+      setHealCount(4)
+    } 
+  },[])
 
   return (
     <div className={style.container}>
       <div className={style.itemContainer}>
-        <h3>Nome: {player.name}</h3>
-
-        <div className={style.containerBar}>
-          <div className={style.lifeBarContainer}></div>
-            <h4>HP: {player.hp}</h4>
-            <div style={{width: player.hp / 5 +"px"}} className={style.lifeBar}>
-          </div>
-        </div>
-
-
-       <button className={style.optionAtack} onClick={()=>Atack(player.atack)}>Atacar: <span>+-{player.atack}</span></button>
-       {healCount > 0? <button className={style.optionHeal} onClick={Heal}>Curar: <span>+- ?</span> <h4 className={style.count}>{healCount}</h4></button> : <button disabled className={style.optionHeal} onClick={Heal}>Curar: <span>+- ?</span> <h4 className={style.count}>{healCount}</h4></button>}
-       <Special setBastoiseSuper={setBastoiseSuper} specialCount={specialCount} pokemon={player.name} setPlayer={setPlayer}/>
+        <PokemonDetails player={player}/>
+        <Atack player={player} setPlayer={setPlayer} bossStats={bossStats} setBossStats={setBossStats} setRoundAtackResume={setRoundAtackResume} setRoundAtackResumeDetails={setRoundAtackResumeDetails}/>
+        <Heal healCount={healCount} setPlayer={setPlayer} bossStatsAtack={bossStats.atack} setRoundHealResume={setRoundHealResume} setRoundHealResumeDetails={setRoundHealResumeDetails}/>
+        <Special setBlastoiseSpecialResume={setBlastoiseSpecialResume} setCharizardSpecialResume={setCharizardSpecialResume} setVenusaurSpecialResume={setVenusaurSpecialResume} bossStats={bossStats} setSpecialCount={setSpecialCount} setBastoiseSuper={setBastoiseSuper} specialCount={specialCount} pokemon={player.name} setPlayer={setPlayer}/>
+        {masterHability && <MasterHability player={player} setPlayer={setPlayer} setBossStats={setBossStats} bossStats={bossStats}/>}
       </div>
 
-      {roundAtackResume && <RoundAtackResume specialCount={specialCount} setSpecialCount={setSpecialCount} roundAtackResumeDetails={roundAtackResumeDetails} setRoundAtackResume={setRoundAtackResume}/>}
-      {roundHealResume && <RoundHealResume specialCount={specialCount} setSpecialCount={setSpecialCount} roundHealResumeDetails={roundHealResumeDetails} setRoundHealResume={setRoundHealResume} healCount={healCount} setHealCount={setHealCount}/>}
-
+      {roundAtackResume && <RoundAtackResume bossStats={bossStats} specialCount={specialCount} setSpecialCount={setSpecialCount} roundAtackResumeDetails={roundAtackResumeDetails} setRoundAtackResume={setRoundAtackResume}/>}
+      {roundHealResume && <RoundHealResume bossStats={bossStats} specialCount={specialCount} setSpecialCount={setSpecialCount} roundHealResumeDetails={roundHealResumeDetails} setRoundHealResume={setRoundHealResume} healCount={healCount} setHealCount={setHealCount}/>}
       {bastoiseSuper && <BlastoiseSuper setBossStats={setBossStats}/>}
+
+      {venusaurSpecialResume && <VenusaurSpecialResume venusaurSpecialResume={venusaurSpecialResume} setVenusaurSpecialResume={setVenusaurSpecialResume} />}
+      {charizardSpecialResume && <CharizardSpecialResume charizardSpecialResume={charizardSpecialResume} setCharizardSpecialResume={setCharizardSpecialResume} />}
+      {blastoiseSpecialResume && <BlastoiseSpecialResume blastoiseSpecialResume={blastoiseSpecialResume} setBlastoiseSpecialResume={setBlastoiseSpecialResume}/>}
 
       {win && <WinResume />}
       {defeat && <DefeatResume />}

@@ -3,10 +3,12 @@ import style from '../Styles/Screen.module.css'
 import ChoosePokemon from './ChoosePokemon'
 import Gameboard from './Gameboard'
 import Menu from './Menu'
+import SelectDifficulty from './SelectDifficulty'
 
 const Screen = () => {
   const [play, setPlay] = React.useState(false)
   const [pokemon, setPokemon] = React.useState(null)
+  const [bossStats, setBossStats] =  React.useState(null)
 
   React.useEffect(()=>{
 
@@ -18,7 +20,8 @@ const Screen = () => {
 
       {!play && <Menu setPlay={setPlay} />}
       {!pokemon && play && <ChoosePokemon setPokemon={setPokemon}/>}
-      {pokemon && <Gameboard pokemon={pokemon}/>}
+      {pokemon && !bossStats && <SelectDifficulty setBossStats={setBossStats} />}
+      {pokemon && bossStats && <Gameboard pokemon={pokemon} bossStats={bossStats} setBossStats={setBossStats}/>}
     </section>
   )
 }

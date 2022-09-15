@@ -1,12 +1,12 @@
 import React from 'react'
 import style from '../Styles/WinOrDefeatResume.module.css'
 
-const WinResume = () => {
+const WinResume = ({bossStats}) => {
   return (
     <section className={style.container}>
       <div className={style.itemContainer}>
         <h1 className={style.titleWin}>Vitória!</h1>
-        <p>Parabéns, você derrotou o Mewtwo!</p>
+        <p>Parabéns, você derrotou o {bossStats.name}!</p>
 
         <button onClick={()=> document.location.reload(true)}>Inicio</button>
       </div>

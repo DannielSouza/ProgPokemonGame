@@ -67,8 +67,8 @@ const Stats = ({bossStats, setBossStats, player, setPlayer, pokemonImg}) => {
       {charizardSpecialResume && <CharizardSpecialResume charizardSpecialResume={charizardSpecialResume} setCharizardSpecialResume={setCharizardSpecialResume} />}
       {blastoiseSpecialResume && <BlastoiseSpecialResume blastoiseSpecialResume={blastoiseSpecialResume} setBlastoiseSpecialResume={setBlastoiseSpecialResume}/>}
 
-      {win && <WinResume />}
-      {defeat && <DefeatResume />}
+      {win && <WinResume bossStats={bossStats} />}
+      {defeat && <DefeatResume bossStats={bossStats} />}
     </div>
   )
 }

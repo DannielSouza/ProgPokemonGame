@@ -33,7 +33,7 @@ const SelectDifficulty = ({setBossStats}) => {
   function hardcore(){
     setBossStats({
       name: 'Rayquaza',
-      hp: 650 * 10,
+      hp: 610 * 10,
       atack: 200, 
       atackMultply: 0,
       img: rayquaza,

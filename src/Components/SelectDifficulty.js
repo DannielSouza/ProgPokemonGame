@@ -21,7 +21,7 @@ const SelectDifficulty = ({setBossStats}) => {
   function hard(){
     setBossStats({
       name: 'Latios e Latias',
-      hp: 205 * 10,
+      hp: 225 * 10,
       atack: 10, 
       atackMultply: .5,
       img: latias,
